@@ -15,11 +15,15 @@ class TitleFragment : Fragment() {
         val binding: FragmentTitleBinding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_title, container, false
         )
-        binding.playButton.setOnClickListener {
-            it.findNavController().navigate(R.id.action_titleFragment_to_gameFragment)
-        }
+        addListeners(binding)
         setHasOptionsMenu(true)
         return binding.root
+    }
+
+    private fun addListeners(binding: FragmentTitleBinding) {
+        binding.playButton.setOnClickListener {
+            it.findNavController().navigate(TitleFragmentDirections.actionTitleFragmentToGameFragment())
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
