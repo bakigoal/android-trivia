@@ -3,6 +3,8 @@ package com.bakigoal.androidtrivia
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
 import com.bakigoal.androidtrivia.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -13,5 +15,11 @@ class MainActivity : AppCompatActivity() {
             this,
             R.layout.activity_main
         )
+        val navController = findNavController(R.id.myNavHostFragment)
+        NavigationUI.setupActionBarWithNavController(this, navController)
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        return findNavController(R.id.myNavHostFragment).navigateUp()
     }
 }
