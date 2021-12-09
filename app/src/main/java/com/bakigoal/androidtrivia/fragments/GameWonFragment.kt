@@ -1,9 +1,8 @@
 package com.bakigoal.androidtrivia.fragments
 
+import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -20,6 +19,7 @@ class GameWonFragment : Fragment() {
         )
         addListeners(binding)
         showResult()
+        setHasOptionsMenu(true)
         return binding.root
     }
 
@@ -37,4 +37,31 @@ class GameWonFragment : Fragment() {
             "NumCorrect: ${args.numCorrect}, NumQuestions: ${args.numQuestions}", Toast.LENGTH_LONG
         ).show()
     }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.winner_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId) {
+            R.id.share -> shareSuccess()
+        }
+        return  super.onOptionsItemSelected(item)
+    }
+
+    private fun getShareIntent(): Intent {
+        val args = GameWonFragmentArgs.fromBundle(requireArguments())
+        return Intent(Intent.ACTION_SEND)
+            .setType("text/plain")
+            .putExtra(
+                Intent.EXTRA_TEXT,
+                getString(R.string.share_success_text, args.numCorrect, args.numQuestions)
+            )
+    }
+
+    private fun shareSuccess() {
+        startActivity(getShareIntent())
+    }
+
 }
