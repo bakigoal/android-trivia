@@ -11,10 +11,8 @@ import com.bakigoal.androidtrivia.databinding.FragmentGameWonBinding
 
 
 class GameWonFragment : Fragment() {
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, s: Bundle?): View? {
         val binding: FragmentGameWonBinding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_game_won, container, false
         )

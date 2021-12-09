@@ -21,10 +21,7 @@ class GameFragment : Fragment() {
     private var questionIndex = 0
     private val numQuestions = min((questions.size + 1) / 2, 3)
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, s: Bundle?): View? {
 
         // Inflate the layout for this fragment
         val binding = DataBindingUtil.inflate<FragmentGameBinding>(

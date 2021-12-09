@@ -8,8 +8,7 @@ import androidx.fragment.app.Fragment
 import com.bakigoal.androidtrivia.R
 
 class RulesFragment : Fragment() {
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? = inflater.inflate(R.layout.fragment_rules, container, false)
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, s: Bundle?): View? =
+        inflater.inflate(R.layout.fragment_rules, container, false)
 }

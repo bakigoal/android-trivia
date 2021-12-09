@@ -10,10 +10,8 @@ import com.bakigoal.androidtrivia.R
 import com.bakigoal.androidtrivia.databinding.FragmentGameOverBinding
 
 class GameOverFragment : Fragment() {
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, s: Bundle?): View? {
         val binding = DataBindingUtil.inflate<FragmentGameOverBinding>(
             inflater, R.layout.fragment_game_over, container, false
         )
